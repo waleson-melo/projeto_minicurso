@@ -1,0 +1,13 @@
+
+<div class="">
+  <h2 class="">Apagar Tarefa</h2>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <p>Você deseja realmente apagar a tarefa?</p>
+
+    <input type="submit" value="Sim" class="">
+    <input type="button" value="Não" onclick="window.location.href = '{% url 'listar' %}'" class="">
+  </form>
+</div>

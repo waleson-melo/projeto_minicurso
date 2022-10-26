@@ -1,0 +1,39 @@
+
+<div class="">
+  <h2 class="">Tarefas</h2>
+
+  <a href="{% url 'cadastrar' %}" class="" title="Nova tarefa">Novo</a>
+
+  <div class="">
+    <table class="">
+      <thead class="">
+        <tr class="">
+          <th scope="col">Tarefa</th>
+          <th scope="col">Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tarefa in object_list %}
+          <tr>
+            <td>
+              <i class=""></i>
+              {{ tarefa.titulo }}
+            </td>
+            <td class="">
+              <a href="{% url 'editar' tarefa.pk %}" class="" title="Editar">
+                Editar
+              </a>
+              <a href="{% url 'excluir' tarefa.pk %}" class="" title="Deletar">
+                Deletar
+              </a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="2">Sem tarefas a serem feitas.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
