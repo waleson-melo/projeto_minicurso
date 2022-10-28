@@ -1,13 +1,15 @@
+{% extends 'template_main.html' %}
 
-<div class="">
-  <h2 class="">Tarefas</h2>
+{% block main %}
+<div class="col-md-5 mx-auto shadow p-3 mb-5 bg-body rounded">
+  <h2 class="text-center">Tarefas</h2>
 
-  <a href="{% url 'cadastrar' %}" class="" title="Nova tarefa">Novo</a>
+  <a href="{% url 'cadastrar' %}" class="btn btn-primary" title="Nova tarefa"><i class="bi bi-plus-square"></i>Novo</a>
 
   <div class="">
-    <table class="">
-      <thead class="">
-        <tr class="">
+    <table class="table table-striped table-hover">
+      <thead class="table-light">
+        <tr class="text-center">
           <th scope="col">Tarefa</th>
           <th scope="col">Opções</th>
         </tr>
@@ -19,12 +21,13 @@
               <i class=""></i>
               {{ tarefa.titulo }}
             </td>
-            <td class="">
-              <a href="{% url 'editar' tarefa.pk %}" class="" title="Editar">
-                Editar
+            <td class="text-center">
+              <a href="{% url 'detalhe' tarefa.pk %}" class="btn btn-primary"><i class="bi bi-eye"></i>\Detalhe</a>
+              <a href="{% url 'editar' tarefa.pk %}" class="btn btn-warning" title="Editar">
+                <i class="bi bi-pencil"></i>Editar
               </a>
-              <a href="{% url 'excluir' tarefa.pk %}" class="" title="Deletar">
-                Deletar
+              <a href="{% url 'excluir' tarefa.pk %}" class="btn btn-danger" title="Deletar">
+                <i class="bi bi-trash"></i>Deletar
               </a>
             </td>
           </tr>
@@ -37,3 +40,4 @@
     </table>
   </div>
 </div>
+{% endblock %}

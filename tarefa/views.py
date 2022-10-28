@@ -1,5 +1,6 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 
 from tarefa.models import Tarefa
@@ -28,3 +29,9 @@ class TarefaDeletar(DeleteView):
     template_name = 'delete.html'
     model = Tarefa
     success_url = reverse_lazy('listar')
+
+
+class TarefaVisualizar(DetailView):
+    template_name = 'detalhe.html'
+    model = Tarefa
+    context_object_name = 'tarefa'
